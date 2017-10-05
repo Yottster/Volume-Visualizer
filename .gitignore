@@ -33,4 +33,5 @@
 
 .vs
 Release/
+Debug/
 *.DotSettings.user
