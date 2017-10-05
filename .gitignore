@@ -30,3 +30,14 @@
 *.exe
 *.out
 *.app
+
+.vs
+Release/
+Debug/
+*.DotSettings.user
+
+*.vcxproj.filters
+*.vcxproj.user
+
+# Dont include the CUE SDK
+CUESDK/
