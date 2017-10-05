@@ -35,3 +35,6 @@
 Release/
 Debug/
 *.DotSettings.user
+
+# Dont include the CUE SDK
+CUESDK/
