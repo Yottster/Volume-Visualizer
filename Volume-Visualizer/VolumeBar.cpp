@@ -51,7 +51,7 @@ HRESULT VolumeBar::Show(float volume) {
 	}
 
 	CorsairSetLedsColors(normalised, volumeLeds);
-	Sleep(150);
+	Sleep(500);
 
 	delete[] volumeLeds;
 	return S_OK;
