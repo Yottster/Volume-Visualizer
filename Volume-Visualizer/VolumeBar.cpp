@@ -16,6 +16,7 @@ HRESULT VolumeBar::Initialize()
 	CorsairProtocolDetails protocol = CorsairPerformProtocolHandshake();
 	if (const auto error = CorsairGetLastError()) {
 		std::cout << "Handshake failed: " << toString(error) << "\nPress any key to quit." << std::endl;
+#pragma warning(suppress: 6031)
 		getchar();
 		return -1;
 	}
@@ -39,7 +40,7 @@ HRESULT VolumeBar::Initialize()
 	return S_OK;
 }
 
-HRESULT VolumeBar::Show(float volume) {
+HRESULT VolumeBar::Show(float volume, bool mute) {
 	const uint16_t normalised = (uint16_t)std::round(volume*10);
 	CorsairLedColor* volumeLeds = new CorsairLedColor[normalised];
 
@@ -47,6 +48,11 @@ HRESULT VolumeBar::Show(float volume) {
 		CorsairLedColor led = CorsairLedColor();
 		led.ledId = (CorsairLedId) (startLed + i);
 		led.r = 255;
+		if (mute) {
+			led.r = 100;
+			led.g = 80;
+			led.b = 80;
+		}
 		volumeLeds[i] = led;
 	}
 

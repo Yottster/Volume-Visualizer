@@ -10,7 +10,7 @@ public:
 
 	static HRESULT Initialize();
 
-	static HRESULT Show(float volume);
+	static HRESULT Show(float, bool=false);
 
 	static const char* toString(CorsairError error)
 	{
